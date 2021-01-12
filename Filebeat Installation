@@ -1,0 +1,23 @@
+curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.3.2-amd64.deb
+sudo dpkg -i filebeat-7.3.2-amd64.deb
+sudo nano /etc/filebeat/filebeat.yml
+Change these parameters:
+
+filebeat.inputs:
+- type: log
+  enabled: true 
+  paths:
+    - /var/log/*.log
+
+setup.kibana:
+  host: "kibana_host:5601"
+
+output.elasticsearch:
+  hosts: ["elasticsearch_host:9200"]
+
+sudo filebeat modules list
+sudo filebeat modules enable system elasticsearch kibana
+sudo filebeat setup
+sudo service filebeat start
+sudo service filebeat status
+sudo filebeat test output
