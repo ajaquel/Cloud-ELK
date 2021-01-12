@@ -1,0 +1,16 @@
+On "master-node"/"worker/Other" nodes after turn it on:
+
+sudo service auditbeat start
+sudo service filebeat start
+sudo service metricbeat start
+sudo service packetbeat start
+
+On "Analytics" nodes after turn it on:
+
+sudo service elasticsearch start
+sudo service kibana start
+sudo service auditbeat start
+sudo service filebeat start
+sudo service metricbeat start
+sudo service packetbeat start
+sudo service heartbeat-elastic start
