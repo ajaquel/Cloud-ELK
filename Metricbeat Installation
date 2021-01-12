@@ -1,0 +1,17 @@
+curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.3.2-amd64.deb
+sudo dpkg -i metricbeat-7.3.2-amd64.deb
+sudo nano /etc/metricbeat/metricbeat.yml
+Change these parameters:
+
+setup.kibana:
+  host: "kibana_host:5601"
+
+output.elasticsearch:
+  hosts: ["elasticsearch_host:9200"]
+
+sudo metricbeat modules list
+sudo metricbeat modules enable system docker
+sudo metricbeat setup
+sudo service metricbeat start
+sudo service metricbeat status
+sudo metricbeat test output
