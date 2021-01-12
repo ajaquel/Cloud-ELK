@@ -1,9 +1,6 @@
 This is the simplest version of the steps on how to deploy a fully functional containerized environment based on VirtualBox, Docker and Kubernetes (K8s) OpenSource technologies that I have been able to implement. It will also include the processes to deploy the ELK (Elasticsearch, Logstach, Kibana) and Grafana OpenSource monitoring technologies.
 
-This is a work in progress in order to get familiar with and share practical knowledge on the said technologies.
-
 Goals
-
 This exercise has the main goal of learning and getting familiar with containers-based cloud infrastructures. AT&T NC (Network Cloud) uses them. The lab allows to observe the functionality of the infrastructure by:
 •Configuring the basic hardware (virtual) for the lab.
 •Configuring the necessary OSs, containers, orchestration, tools and monitoring packages.
