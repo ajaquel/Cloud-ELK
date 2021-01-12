@@ -1,0 +1,78 @@
+curl -L -O https://artifacts.elastic.co/downloads/beats/heartbeat/heartbeat-7.3.2-amd64.deb
+sudo dpkg -i heartbeat-7.3.2-amd64.deb
+sudo nano /etc/heartbeat/heartbeat.yml
+Change these parameters:
+
+
+# Configure monitors inline
+heartbeat.monitors:
+- type: http
+  name: ElasticSearch_Server
+  # List or urls to query
+  urls: ["http://localhost:9200"]
+  # Configure task schedule
+  schedule: '@every 10s'
+  # Total test connection and data exchange timeout
+  #timeout: 16s
+
+- type: http
+  name: Kibana_Server
+  # List or urls to query
+  urls: ["http://localhost:5601"]
+  # Configure task schedule
+  schedule: '@every 10s'
+  # Total test connection and data exchange timeout
+  #timeout: 16s
+
+
+- type: icmp
+  name: Analytics_VM
+  schedule: '*/5 * * * * * *'
+  hosts: ["localhost"]
+
+- type: icmp
+  name: Gateway_Router
+  schedule: '*/5 * * * * * *'
+  hosts: ["10.0.0.1"]
+
+- type: icmp
+  name: Host_Server
+  schedule: '*/5 * * * * * *'
+  hosts: ["10.0.0.236"]
+
+- type: icmp
+  name: ThinkPad_Host
+  schedule: '*/5 * * * * * *'
+  hosts: ["10.0.0.70"]
+
+#- type: tcp
+  #schedule: '@every 5s' 
+  #hosts: ["localhost:12345"]
+  #mode: any
+
+
+setup.kibana:
+  host: "kibana_host:5601"
+
+output.elasticsearch:
+  hosts: ["elasticsearch_host:9200"]
+
+
+- add_observer_metadata:
+    netinfo.enabled: false
+    cache.ttl: 5m
+    geo:
+      name: us-west-seattle
+      location: 47.676316, -122.208616
+      continent_name: North America
+      country_iso_code: US
+      region_name: Pacific North West
+      region_iso_code: WA
+      city_name: Seattle
+
+sudo heartbeat setup
+Download Heartbeat Dashboards from GIT (https://github.com/elastic/uptime-contrib)
+Import Dashboards from GIT into Kibana Managament>Saved Objects>Import
+sudo service heartbeat-elastic start
+sudo service heartbeat-elastic status
+sudo heartbeat test output
