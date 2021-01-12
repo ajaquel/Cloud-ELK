@@ -1,0 +1,27 @@
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+sudo apt-get install apt-transport-https
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt-get update && sudo apt-get install kibana
+sudo nano /etc/kibana/kibana.yml
+sudo service kibana start
+http://localhost:5601/app/kibana#/home?_g=()
+
+sudo cat /etc/kibana/kibana.yml 
+
+server.port: 5601
+server.host: "localhost"
+server.maxPayloadBytes: 1048576
+server.name: "localhost"
+elasticsearch.hosts: ["http://localhost:9200"]
+#elasticsearch.url: "http://localhost:9200"
+elasticsearch.preserveHost: true
+kibana.index: ".kibana"
+kibana.defaultAppId: "home"
+elasticsearch.pingTimeout: 1500
+elasticsearch.requestTimeout: 30000
+elasticsearch.shardTimeout: 30000
+elasticsearch.startupTimeout: 5000
+logging.dest: stdout
+logging.verbose: false
+ops.interval: 5000
+i18n.locale: "en"
