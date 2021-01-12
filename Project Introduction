@@ -1,0 +1,22 @@
+This is the simplest version of the steps on how to deploy a fully functional containerized environment based on VirtualBox, Docker and Kubernetes (K8s) OpenSource technologies that I have been able to implement. It will also include the processes to deploy the ELK (Elasticsearch, Logstach, Kibana) and Grafana OpenSource monitoring technologies.
+
+This is a work in progress in order to get familiar with and share practical knowledge on the said technologies.
+
+Goals
+
+This exercise has the main goal of learning and getting familiar with containers-based cloud infrastructures. AT&T NC (Network Cloud) uses them. The lab allows to observe the functionality of the infrastructure by:
+•Configuring the basic hardware (virtual) for the lab.
+•Configuring the necessary OSs, containers, orchestration, tools and monitoring packages.
+•Loading Apps using orchestration GUI.
+•Scaling deployments.
+•Checking, testing and troubleshooting the infrastructure and the services.
+•Configuring monitoring systems.
+•Using monitoring systems for infrastructure operation and troubleshooting.
+
+Preliminary Considerations
+•Environment performance directly depends on the computer/server hardware configuration available for the deployment. This will include the size and the amount of the Virtual Machines that need to be created and used. The amounts of RAM, CPU and Storage presented in the procedure for every VM has been found to be the minimum values for a smooth performance. It is possible to run the lab with smaller sizes.
+•Environment is configured with VMs' networking set on "Bridged Adapter" mode in VirtualBox. This is not mandatory and Virtualization Host's VirtualBox itself can also be used as a DHCP server instead of the local gateway.
+•Environment is not being configured to use auto-scaling (… yet). Scaling have to be managed and used manually in Kubernetes.
+•Kubernetes services (http server, DB server, etc.) are not able to acquire an external endpoint IP; therefore, they are only reachable from within their respective clusters. This seems to be a Kubernetes bug.
+•Flannel is the Kubernetes networking package of choice for this lab. There are several other equally valid options that can be used.
+•If a particular version of a package needs to be installed, Linux "Synaptic Package Manager" can be used by selecting the package to be installed from the list > Package > Force Version...
