@@ -1,0 +1,13 @@
+ELK Installation
+https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html
+https://www.elastic.co/guide/en/kibana/current/setup.html
+https://www.elastic.co/downloads/beats
+https://www.elastic.co/guide/en/beats/auditbeat/6.0/auditbeat-getting-started.html
+https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-getting-started.html
+https://www.elastic.co/guide/en/beats/heartbeat/current/heartbeat-getting-started.html
+https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-getting-started.html
+https://www.elastic.co/guide/en/beats/packetbeat/current/packetbeat-getting-started.html
+
+Grafana Installation
+https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-grafana-on-ubuntu-18-04
+https://grafana.com/docs/installation/configuration/
