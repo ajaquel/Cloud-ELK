@@ -1,0 +1,16 @@
+sudo apt-get install libpcap0.8
+curl -L -O https://artifacts.elastic.co/downloads/beats/packetbeat/packetbeat-7.3.2-amd64.deb
+sudo dpkg -i packetbeat-7.3.2-amd64.deb
+sudo nano /etc/packetbeat/packetbeat.yml
+Change these parameters:
+
+setup.kibana:
+  host: "kibana_host:5601"
+
+output.elasticsearch:
+  hosts: ["elasticsearch_host:9200"]
+
+sudo packetbeat setup
+sudo service packetbeat start
+sudo service packetbeat status
+sudo packetbeat test output
