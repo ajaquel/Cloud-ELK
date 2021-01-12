@@ -1,0 +1,17 @@
+Run on every node that is part of the ELK cluster:
+
+curl -L -O https://artifacts.elastic.co/downloads/beats/auditbeat/auditbeat-7.3.2-amd64.deb
+sudo dpkg -i auditbeat-7.3.2-amd64.deb
+sudo nano /etc/auditbeat/auditbeat.yml
+Change these parameters:
+
+setup.kibana:
+  host: "kibana_host:5601"
+
+output.elasticsearch:
+  hosts: ["elasticsearch_host:9200"]
+
+sudo auditbeat setup
+sudo service auditbeat start
+sudo service auditbeat status
+sudo auditbeat test output
