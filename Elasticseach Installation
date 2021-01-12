@@ -1,0 +1,28 @@
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+sudo apt-get install apt-transport-https
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt-get update && sudo apt-get install elasticsearch
+sudo nano /etc/elasticsearch/elasticsearch.yml
+sudo service elasticsearch start
+http://localhost:9200/
+curl -X GET "localhost:9200/?pretty"
+
+sudo nano /etc/elasticsearch/elasticsearch.yml
+
+# ----------------------------------- Paths ------------------------------------
+
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+
+# ---------------------------------- Network -----------------------------------
+
+#network.host: ["localhost"]
+#network.host: 0.0.0.0
+#network.host: 10.0.0.19
+network.bind_host: 0.0.0.0
+node.master: true
+node.data: true
+transport.host: localhost
+transport.tcp.port: 9300
+#http.port: 9200
+#transport.port: 9200
