@@ -11,3 +11,6 @@ https://www.elastic.co/guide/en/beats/packetbeat/current/packetbeat-getting-star
 Grafana Installation
 https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-grafana-on-ubuntu-18-04
 https://grafana.com/docs/installation/configuration/
+
+Other
+https://qbox.io/blog/monitoring-docker-containers-with-metricbeat-elasticsearch-and-kibana
